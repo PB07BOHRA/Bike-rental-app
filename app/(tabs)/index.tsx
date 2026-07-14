@@ -28,6 +28,15 @@ export default function HomeScreen() {
 >
   <Text style={styles.loginText}>Login</Text>
 </Pressable>
+<Pressable
+  style={styles.guestButton}
+  onPress={() => {
+    console.log("Continue as Guest");
+    // router.push("/home"); // We'll add this later
+  }}
+>
+  <Text style={styles.guestText}>Continue as Guest</Text>
+</Pressable>
 
     </View>
   );
@@ -76,6 +85,22 @@ const styles = StyleSheet.create({
 
 loginText: {
   color: "#FFFFFF",
+  fontSize: 18,
+  fontWeight: "bold",
+},
+guestButton: {
+  marginTop: 15,
+  width: "80%",
+  padding: 15,
+  borderRadius: 10,
+  alignItems: "center",
+  borderWidth: 2,
+  borderColor: "#2563EB",
+  backgroundColor: "#FFFFFF",
+},
+
+guestText: {
+  color: "#2563EB",
   fontSize: 18,
   fontWeight: "bold",
 },
