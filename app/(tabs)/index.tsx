@@ -4,13 +4,16 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
  
+  
   <Image
-  source={require("@/assets/images/logo.png")}
+  source={require("../../assets/images/logo.png")}
   style={styles.logo}
 />
+ 
+
   
       <Text style={styles.title}>
-       Ghoomakad Bike Rental 
+           Ghoomakad Bike Rental 
       </Text>
 
       <Text style={styles.subtitle}>
@@ -50,9 +53,10 @@ const styles = StyleSheet.create({
 
 
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: "bold",
     color: "#1E3A8A",
+   textAlign:"center",
   },
 
   subtitle: {
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
   loginButton: {
   marginTop: 70 ,
   backgroundColor: "#2563EB",
-  width: 220,
+  width: "80%",
   padding: 15,
   borderRadius: 10,
   alignItems: "center",
