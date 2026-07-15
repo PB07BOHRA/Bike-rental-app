@@ -11,6 +11,7 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
+import { router } from "expo-router";
 import React, { useState } from "react";
 
 export default function LoginScreen() {
@@ -28,6 +29,7 @@ const handleLogin = () => {
     Alert.alert("Error","Please enter your password.");
     return;
   }
+  
 
  Alert. alert("Success","Login Successful!");
 
@@ -111,10 +113,14 @@ const handleLogin = () => {
         Don't have an account?
       </Text>
 
-      <TouchableOpacity>
+      <TouchableOpacity  onPress={() => {
+    console.log("Going to register...");
+    router.push("/register");
+  }}>
         <Text style={styles.register}>
           Create Account
         </Text>
+       
       </TouchableOpacity>
 
        </SafeAreaView>
