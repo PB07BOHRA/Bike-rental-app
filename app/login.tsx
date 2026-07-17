@@ -98,7 +98,7 @@ const handleLogin = () => {
 </TouchableOpacity>
 
       <TouchableOpacity>
-        <Text style={styles.forgot}>
+        <Text style={styles.forgot} onPress={() => router.push("/forgot")}>
           Forgot Password?
         </Text>
       </TouchableOpacity>
