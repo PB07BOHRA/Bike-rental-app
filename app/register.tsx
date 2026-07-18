@@ -178,12 +178,21 @@ const styles = StyleSheet.create({
   },
 
   registerButton: {
-    backgroundColor: "#2563EB",
-    height:55,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-    marginTop: 15,
+   backgroundColor: "#2563EB",
+  height: 56,
+  borderRadius: 30,
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: 25,
+  elevation: 5,
+
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 3,
+  },
+  shadowOpacity: 0.2,
+  shadowRadius: 4,
   },
 
   registerText: {
