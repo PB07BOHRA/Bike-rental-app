@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View, Image, Pressable , } from "react-native";
+import { ScrollView,StyleSheet, Text, View, Image, Pressable ,TextInput, } from "react-native";
 import { router } from "expo-router";
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+     <ScrollView
+  contentContainerStyle={styles.container}
+  showsVerticalScrollIndicator={false}
+>
  
   
   <Image
@@ -17,91 +20,222 @@ export default function HomeScreen() {
       </Text>
 
       <Text style={styles.subtitle}>
-        Rent Bikes Anytime, Anywhere in Dehradun
+        Hello 👋
       </Text>
+      <Text style={styles.subtitle}>
+       Find your perfect ride.
+      </Text>
+   <TextInput
+  placeholder="Search bike..."
+  style={styles.searchInput}
+/>
+<View style={styles.Categories}>
 <Pressable
-  style={styles.loginButton}
-  onPress={() => {
-    console.log("Going to login...");
-    router.push("/login");
-  }}
+  style={styles.categoryButton}>
+  <Text style={styles.categoryText}
+  >Sport</Text>
+  </Pressable>
+<Pressable
+  style={styles.categoryButton}
+ 
 >
-  <Text style={styles.loginText}>Login</Text>
+  <Text style={styles.categoryText}>Scooty</Text>
 </Pressable>
 <Pressable
-  style={styles.guestButton}
-  onPress={() => {
-    console.log("Continue as Guest");
-    // router.push("/home"); // We'll add this later
-  }}
+  style={styles.categoryButton}
+ 
 >
-  <Text style={styles.guestText}>Continue as Guest</Text>
+  <Text style={styles.categoryText}>Adventure</Text>
 </Pressable>
 
-    </View>
+<Pressable
+  style={styles.categoryButton}
+ 
+>
+  <Text style={styles.categoryText}>Cruiser</Text>
+</Pressable>
+</View>
+<Text style={styles.TextPopularBike}>Popular Bikes</Text>
+    <View style={styles.bikeCard}>
+      <Image
+  source={require("../../assets/images/logo.png")}
+  style={styles.logo}
+/>
+<Text style={styles.bikeName}>Royal Enfield Classic 350
+</Text>
+<Text style={styles.bikePrice}>999/day
+</Text>
+<Text style={styles.bikeRating}>⭐4.8
+
+</Text>
+<Pressable style={styles.detailButton}>
+<Text style={styles.detailButtonText}>View
+
+</Text>
+</Pressable>
+</View>
+<View style={styles.BottomNavigation}
+>
+  <Text style={styles.navItem}>Home
+
+</Text>
+<Text style={styles.navItem}>Bookings
+
+</Text>
+<Text style={styles.navItem}>Profile
+
+</Text>
+</View>
+    
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#cac7c7df",
-
-    justifyContent: "center",
-
-    alignItems: "center",
-
+    backgroundColor: "#F5F5F5",
     padding: 20,
+    paddingBottom: 40,
   },
 
-  logo:{
-      width: 140,
-  height: 140,
-  marginBottom: 50,
+  logo: {
+    width: 120,
+    height: 120,
+    alignSelf: "center",
+    marginTop: 10,
+    marginBottom: 10,
   },
-
 
   title: {
     fontSize: 28,
     fontWeight: "bold",
     color: "#1E3A8A",
-   textAlign:"center",
+    textAlign: "center",
   },
 
   subtitle: {
-    fontSize: 18,
-    color: "#141414",
-    marginTop: 12,
+    fontSize: 17,
+    color: "#555",
+    textAlign: "center",
+    marginTop: 5,
+  },
+
+  searchInput: {
+    marginTop: 25,
+    backgroundColor: "#FFFFFF",
+    height: 50,
+    borderRadius: 15,
+    paddingHorizontal: 18,
+    borderWidth: 1,
+    borderColor: "#D1D5DB",
+    fontSize: 16,
+  },
+
+  Categories: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 25,
+    marginBottom: 25,
+  },
+
+  categoryButton: {
+    backgroundColor: "#2563EB",
+    width: 80,
+    height: 42,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  categoryText: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "600",
+  },
+
+  TextPopularBike: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#1E3A8A",
+    marginBottom: 15,
+  },
+
+  bikeCard: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 18,
+    padding: 18,
+    alignItems: "center",
+    elevation: 5,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 5,
+  },
+
+  bikeName: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#222",
+    marginTop: 10,
     textAlign: "center",
   },
-  loginButton: {
-  marginTop: 70 ,
-  backgroundColor: "#2563EB",
-  width: "80%",
-  padding: 15,
-  borderRadius: 10,
-  alignItems: "center",
-},
 
-loginText: {
-  color: "#FFFFFF",
-  fontSize: 18,
-  fontWeight: "bold",
-},
-guestButton: {
-  marginTop: 15,
-  width: "80%",
-  padding: 15,
-  borderRadius: 10,
-  alignItems: "center",
-  borderWidth: 2,
-  borderColor: "#2563EB",
-  backgroundColor: "#FFFFFF",
-},
+  bikePrice: {
+    fontSize: 18,
+    color: "#2563EB",
+    fontWeight: "700",
+    marginTop: 8,
+  },
 
-guestText: {
-  color: "#2563EB",
-  fontSize: 18,
-  fontWeight: "bold",
-},
+  bikeRating: {
+    fontSize: 16,
+    color: "#F59E0B",
+    marginTop: 5,
+    marginBottom: 15,
+  },
+
+  detailButton: {
+    backgroundColor: "#2563EB",
+    width: "70%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 25,
+  },
+
+  detailButtonText: {
+    color: "#FFFFFF",
+    fontSize: 17,
+    fontWeight: "bold",
+  },
+
+  BottomNavigation: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    marginTop: 30,
+    paddingVertical: 15,
+    borderRadius: 20,
+
+    elevation: 5,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 4,
+  },
+
+  navItem: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#2563EB",
+  },
 });
