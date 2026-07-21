@@ -1,5 +1,19 @@
 import { ScrollView,StyleSheet, Text, View, Image, Pressable ,TextInput, } from "react-native";
 import { router } from "expo-router";
+const bikes = [   { id: 1,
+    name: "Royal Enfield Classic 350",
+    price: "₹1300/day",
+    rating: "⭐4.8",
+    image: require("../../assets/images/royal350.png"),
+  },
+  {
+    id: 2,
+    name: "Royal Enfield Himalayan",
+    price: "₹1499/day",
+    rating: "⭐4.7",
+    image: require("../../assets/images/himalayan450.png"),
+  },
+];
 export default function HomeScreen() {
   return (
      <ScrollView
@@ -56,24 +70,39 @@ export default function HomeScreen() {
 </Pressable>
 </View>
 <Text style={styles.TextPopularBike}>Popular Bikes</Text>
-    <View style={styles.bikeCard}>
-      <Image
-  source={require("../../assets/images/logo.png")}
-  style={styles.logo}
-/>
-<Text style={styles.bikeName}>Royal Enfield Classic 350
-</Text>
-<Text style={styles.bikePrice}>999/day
-</Text>
-<Text style={styles.bikeRating}>⭐4.8
+    {bikes.map((bike) => (
+  <View key={bike.id} style={styles.bikeCard}>
 
-</Text>
-<Pressable style={styles.detailButton}>
-<Text style={styles.detailButtonText}>View
+    <Image source={bike.image} style={styles.bikeImage} />
 
-</Text>
-</Pressable>
-</View>
+    <Text style={styles.bikeName}>
+      {bike.name}
+    </Text>
+
+    <Text style={styles.bikePrice}>
+      {bike.price}
+    </Text>
+
+    <Text style={styles.bikeRating}>
+      {bike.rating}
+    </Text>
+
+    <Pressable style={styles.detailButton}
+      onPress={() =>
+    router.push({
+      pathname: "/bikedetail",
+      params: {
+        id: bike.id,
+      },
+    })
+  }>
+      <Text style={styles.detailButtonText}>
+        View Details
+      </Text>
+    </Pressable>
+
+  </View>
+))}
 <View style={styles.BottomNavigation}
 >
   <Text style={styles.navItem}>Home
@@ -105,6 +134,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
+  bikeImage: {
+  width: 180,
+  height: 120,
+  resizeMode: "contain",
+  marginBottom: 10,
+},
 
   title: {
     fontSize: 28,
@@ -166,6 +201,7 @@ const styles = StyleSheet.create({
     padding: 18,
     alignItems: "center",
     elevation: 5,
+    marginBottom: 20,
 
     shadowColor: "#000",
     shadowOffset: {
